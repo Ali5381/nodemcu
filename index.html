@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP List</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-database-compat.js" defer></script>
+</head>
+
+<body class="dfx">
+    <div class="container">
+        <img class="add-img" src="./img/add.svg" onclick="pop_conts()">
+        <h2>IP List</h2>
+
+        <img src="./img/arrow-left.svg" class="back-img" onclick="head_loader(1)">
+
+        <div class="header">
+            <ol class="dfx f"></ol>
+        </div>
+        <div class="detail dfx f">
+            <div class="search dfx">
+                <input type="text" placeholder="Enter to search..." oninput="ip_inp_search(this)"
+                    onkeydown="ip_search(event)">
+            </div>
+            <ol class="dfx f">
+                <li style="text-align: center;">No IP Found</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="ip-info-con dfx">
+        <div class="ip-info-con-in dfx f">
+            <h2>IP Catagory</h2>
+            <div class="input-div">
+                <span>Catagory name</span><input placeholder="Enter Catagory name..." type="text">
+            </div>
+            <div class="input-div">
+                <span>IP - Gateway</span><input placeholder="Enter Gateway IP..." type="text">
+            </div>
+            <div class="input-div">
+                <span>IP - Start</span><input placeholder="Enter Start IP..." type="text">
+            </div>
+            <div class="dfx" style="width: 100%;">
+                <button onclick="close_ip_info_detail(1)">Close</button>
+                <button onclick="request_ip_info()">Continue</button>
+                <button onclick="edit_ip_info()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="ip-detail-con dfx">
+        <div class="ip-detail-con-in dfx f">
+            <h2>Machine Details</h2>
+            <div class="input-div">
+                <span>Name</span><input placeholder="Enter name..." type="text">
+            </div>
+            <div class="input-div">
+                <span>IP</span><input placeholder="Enter machine IP..." type="text">
+            </div>
+            <div class="input-div">
+                <span>MAC</span><input placeholder="Enter machine MAC..." type="text">
+            </div>
+            <div class="dfx" style="width: 100%;">
+                <button onclick="close_ip_info_detail(0)">Close</button>
+                <button onclick="request_ip_detail()">Continue</button>
+                <button onclick="edit_ip_detail()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pop-out dfx">
+        <div class="pop-in dfx f">
+            <div class="pop-detail">There is an problem with key</div>
+            <div class="dfx" style="width: 100%;">
+                <button onclick="document.querySelector('.pop-out').style.display='none'">Close</button>
+                <button>Continue</button>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js" defer></script>
+</body>
+
+</html>
